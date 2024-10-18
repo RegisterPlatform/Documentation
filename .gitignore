@@ -5,3 +5,8 @@
 !*.md
 !*.png
 !*.jpg
+!used-tech/
+!uml/
+!img/
+!setup/
+!backend/
