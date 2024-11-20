@@ -2,4 +2,11 @@
 *
 
 # But not these files...
-!*.adoc
+!*.md
+!*.png
+!*.jpg
+!used-tech/
+!uml/
+!img/
+!setup/
+!backend/
