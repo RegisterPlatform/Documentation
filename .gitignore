@@ -5,6 +5,7 @@
 !*.md
 !*.png
 !*.jpg
+!*.html
 !used-tech/
 !uml
 !img
