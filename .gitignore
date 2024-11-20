@@ -5,10 +5,10 @@
 !*.md
 !*.png
 !*.jpg
-!used-tech/
-!uml/
-!img/
-!setup/
-!backend/
-!.nojekyll
-!_config.yml
+!docs/used-tech/
+!docs/uml/
+!docs/img/
+!docs/setup/
+!docs/backend/
+!docs/_config.yml
+!docs/Gemfile
