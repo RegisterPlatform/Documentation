@@ -11,3 +11,4 @@
 !setup/
 !backend/
 !.nojekyll
+!_config.yml
