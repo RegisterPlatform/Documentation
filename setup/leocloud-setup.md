@@ -249,6 +249,63 @@ spec:
 
 In this yaml deployment you create config maps and secrets. After this you create the deployment itself. And for every deployment you need a service. The labels help organizing kubernetes. When you set the label the deployment and service are added to a group with the name.
 
+## Docker Secret
+You can create a docker secret with the command.
+```shell
+kubectl create secret docker-registry NAME --docker-username=user --docker-password=password --docker-email=email [--docker-server=string] [--from-file=[key=]source] [--dry-run=server|client|none]
+```
+
+## React App
+If you have created the docker secret for pulling. You can create a react app with the yaml file below.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: [name of deployment]
+  labels:
+    app: [name of app]
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: [name of app]
+  template:
+    metadata:
+      labels:
+        app: [name of app]
+    spec:
+      imagePullSecrets:
+      - name: [name of your docker grand]
+      containers:
+      - name: [name of container]
+        image: [ghcr image | nginx:stabel]
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: [service name]
+spec:
+  selector:
+    app: [name of app]
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+```
+
+In this yaml file you create a deployment for nginx. You can pull a public image or a private image. For the private image you need a [docker secret](#docker-secret) for login
+
 ## Hints
 You can run the the auth command a second time. It can update your permissions if you get new permissions from the sysadmin
 ```shell
