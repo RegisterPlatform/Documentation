@@ -22,7 +22,7 @@ metadata:
     app: [name of the app]
 spec:
   accessModes:
-    - [Your access | (ReadOnlyMany, ReadWriteMany, ReadWriteMany)]
+    - [Your access | (ReadOnlyMany, ReadWriteMany, ReadWriteOnce)]
   resources:
     requests:
       storage: [The size | z.B 10Ti]
