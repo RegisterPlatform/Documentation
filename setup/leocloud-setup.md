@@ -304,10 +304,19 @@ spec:
   type: ClusterIP
 ```
 
-In this yaml file you create a deployment for nginx. You can pull a public image or a private image. For the private image you need a [docker secret](#docker-secret) for login
+In this yaml file you create a deployment for nginx. You can pull a public image or a private image. For the private image you need a [docker secret](#docker-secret) for login. And if you let the Frontend run on another subpath. 
+
+You need to set the public url
+```
+ENV PUBLIC_URL=/frontend
+```
 
 ## Hints
+
+### Permission View
 You can run the the auth command a second time. It can update your permissions if you get new permissions from the sysadmin
 ```shell
 leocloud auth login --force
 ```
+
+
