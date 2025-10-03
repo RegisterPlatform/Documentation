@@ -76,6 +76,12 @@
    - de.json 
    - en.json
    - logo
+### Ablauf
+1. **StartingPage:** Startseite mit Informationen und Login-Optionen
+2. **ApplicationOverview:** Übersicht über den Bewerbungsprozess und den aktuellen Status
+3. **Stepwizard:** Schritt-für-Schritt-Anleitung zur Eingabe der Bewerbungsdaten
+4. **ApplicationReview:** Überprüfung und Bestätigung der eingegebenen Daten vor dem
+5. **Absenden der Bewerbung**
 ---
 
 ## GitHub
