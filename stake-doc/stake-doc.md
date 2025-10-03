@@ -28,7 +28,40 @@
 - **Ingress:** Kontrolle von Ein- und Ausgängen
 - **Claim (Keycloak, Backend):** Fester Speicherplatz, um Datenverlust zu vermeiden
 
----  
+
+## Backend
+
+- **API**
+    - ASP.NET Core (MVC)
+    - Controller mit API-Versionierung
+    - Swagger API mit Keycloak
+
+- **App Settings**
+    - Keycloak
+    - API-Versionierung
+    - Mail-Server
+    - Allgemeine Konfigurationen
+
+- **E-Mail**
+    - HTML-basiert
+    - Nutzung eines MailService anstelle direkter Implementierung
+
+- **Models & Services**
+    - Dateien werden mit AES verschlüsselt
+    - Schlüssel in den App Settings gespeichert
+
+- **Migrationen**
+    - Durchführung bei Änderungen an den Models
+
+- **DataContext**
+    - Konfiguration der Datenbank
+    - Create & Update & IDs automatisch generiert
+
+- **Keycloak**
+    - Berechtigungen abrufen
+    - Benutzer anlegen
+    - Rollen zuweisen
+---
 
 ## GitHub
 - **Issues:** Erfassen neuer oder korrigierter logischer Funktionalitäten
