@@ -29,9 +29,7 @@
 - **Ingress:** Kontrolle von Ein- und Ausgängen
 - **Claim (Keycloak, Backend):** Fester Speicherplatz, um Datenverlust zu vermeiden
 
-
 ## Backend
-
 - **API**
     - ASP.NET Core (MVC)
     - Controller mit API-Versionierung
