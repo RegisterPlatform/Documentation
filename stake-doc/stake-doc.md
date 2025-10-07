@@ -158,3 +158,150 @@
 
 ## Struktur
 ![Struktur](./registerplatformrebuilt_staging.png)
+
+---
+
+### Persons
+
+**Funktion:**  
+Speichert persönliche, demografische und kontaktbezogene Daten von Bewerber:innen.
+
+**Wichtige Felder:**
+- `FirstName`, `LastName`, `Email`, `PhoneNumber` – Basis-Kontaktdaten
+- `Birthdate`, `Gender`, `Nationality`, `Religion` – Persönliche Informationen
+- `AddressId` – Verknüpfung zur Tabelle `Addresses`
+- `ApplicantId` – Verknüpfung zur Tabelle `Applications`
+- `HasSiblingInSchool`, `DormitoryDesire` – Besondere Angaben oder Wünsche
+- `SocialSecurityNumber`, `BirthCountry`, `MotherTongue`, `MainLanguage` – Weitere demografische Daten
+- `CreatedAt`, `UpdatedAt` – Zeitstempel für Änderungsverfolgung
+
+---
+
+### Addresses
+
+**Funktion:**  
+Enthält Adressdaten
+
+**Wichtige Felder:**
+- `HouseNumber`, `Street`, `City`, `Country`, `ZipCode` – Adresselemente
+- `CreatedAt`, `UpdatedAt` – Zeitstempel für Änderungsverfolgung
+
+---
+
+### Applications
+
+**Funktion:**  
+Repräsentiert eine individuelle Bewerbung einer Person für ein bestimmtes Schuljahr.
+
+**Wichtige Felder:**
+- `ApplicantId` – Verknüpfung zur Tabelle `Persons`
+- `YearId` – Zugehöriges Schuljahr
+- `StatusId` – Aktueller Bewerbungsstatus (z. B. eingereicht, angenommen, abgelehnt)
+- `SubmissionDate` – Datum der Einreichung
+- `KeycloakUserId` – Verweis auf das Authentifizierungssystem
+- `PreviousSchoolHistoryId` – Letzte besuchte Schule des Bewerbers
+
+---
+
+### Documents
+
+**Funktion:**  
+Verwaltet eingereichte Dokumente (z. B. Zeugnisse, Geburtsurkunden, Identitätsnachweise).
+
+**Wichtige Felder:**
+- `FileName` – Dateiname
+- `DocumentType` – Typ des Dokuments (Zeugnis, ID usw.)
+- `Reviewed`, `ReviewedDate` – Status und Datum der Überprüfung
+- `ApplicationKeycloakUserId` – Verknüpfung zur zugehörigen Bewerbung bzw. Benutzer-ID
+
+---
+
+### Schools
+
+**Funktion:**  
+Speichert Informationen über Schulen, die von Bewerber:innen besucht wurden oder Teil des Systems sind.
+
+**Wichtige Felder:**
+- `Name` – Schulname
+- `ZipCode`, `City` – Standortinformationen
+- `SchoolType` – Typ der Schule (z. B. Grundschule, Gymnasium)
+
+---
+
+### Years
+
+**Funktion:**  
+Definiert das Schuljahr für Bewerbungen.
+ 
+**Wichtige Felder:**
+- `Name` – Bezeichnung des Schuljahres (z. B. „2025/2026“)
+- `StartDate`, `EndDate` – Zeitrahmen des Schuljahres
+- `PreRegistrationStartDate`, `PreRegistrationEndDate` – Zeitraum für Voranmeldungen
+
+---
+
+### Grades
+
+**Funktion:**  
+Speichert Noten einzelner Schüler:innen.
+
+**Wichtige Felder:**
+- `Subject` – Fach
+- `Grade` – Bewertung / Note
+- `SchoolId` – Zugehörige Schule
+- `YearId` – Schuljahr
+
+---
+
+### PreviewSchoolHistories
+
+**Funktion:**  
+Erfasst Daten über zuvor besuchte Schulen und deren Zeiträume.
+
+**Wichtige Felder:**
+- `LastSchoolId` – Verknüpfung zur zuletzt besuchten Schule
+- `CreatedAt`, `UpdatedAt` – Änderungsverfolgung
+
+---
+
+### TimeInSchools
+
+**Funktion:**  
+Erfasst die Dauer, die eine Person an einer Schule verbracht hat.
+
+**Wichtige Felder:**
+- `SchoolType` – Art der Schule
+- `Years` – Anzahl der Jahre
+- `PreviewsSchoolHistoryId` – Referenz zur vorherigen Schulhistorie
+
+---
+
+### Notices
+
+**Funktion:**  
+Enthält System- oder Verwaltungsmitteilungen
+
+**Wichtige Felder:**
+- `State` – Status der Mitteilung
+- `CreatedAt`, `UpdatedAt` – Zeitstempel
+- `NoticeId` – Referenz zu verknüpften Entitäten
+
+---
+
+### AdmissionTests
+
+**Funktion:**
+Speichert Informationen zu Aufnahmeprüfungen.
+
+**Wichtige Felder:**
+- `Name` – Bezeichnung des Tests
+- `NoticeId` – Verknüpfung zu einer Mitteilung
+- `StatusId` – Status des Tests
+
+---
+
+## EF-Migrationshistorie (`__EFMigrationsHistory`)
+
+**Funktion:**  
+Systemtabelle von Entity Framework, dokumentiert angewendete Datenbankmigrationen.  
+Wird nicht direkt von der Anwendung verwendet.
