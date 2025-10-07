@@ -51,6 +51,9 @@
 - **Client erstellen:** Daten setzen wie folgt
 - **Root URL:** [Domain]/fronted; Anfang
 - **Home URL:** default
+- **Rollenvergabe:** Rollen wie admin, secretary und applicant werden im Client festgelegt.
+- **Benutzer und Rechte:** Benutzer werden im Realm angelegt und mit Rollen versehen.
+- **Zentrale Verwaltung:** Keycloak verwaltet alle Clients und Benutzer über die Admin-Konsole.
 
  
 ---
