@@ -17,7 +17,7 @@
 ## Dateien
 - Dateien werden nicht in der Datenbank, sondern in einem Ordner gespeichert.
 - Speicherung erfolgt über die **Keycloak-ID**.
-- Dateien werden ohne Erweiterungen, dafür mit **Magic Number** gespeichert.
+- Dateien werden nur mit Path in der Datenbank gespeichert.
 
 **Geplante Funktionen:**
 - Bewerbungen abrufen
