@@ -91,6 +91,7 @@
     - Berechtigungen abrufen
     - Benutzer anlegen
     - Rollen zuweisen
+
 ---
 
 ## Frontend
@@ -100,6 +101,8 @@
 - **Keycloakjs:** JavaScript-Adapter für die Integration von Keycloak
 - **Primeng:** UI-Komponentenbibliothek für Angular
 - **Environments:** Verwaltung von Umgebungsvariablen für verschiedene Deployments
+
+---
 
 ### Aufbau
 - **Components:** Wiederverwendbare UI-Elemente
@@ -138,12 +141,16 @@
    - de.json 
    - en.json
    - logo
+
+---
+
 ### Ablauf
 1. **StartingPage:** Startseite mit Informationen und Login-Optionen
 2. **ApplicationOverview:** Übersicht über den Bewerbungsprozess und den aktuellen Status
 3. **Stepwizard:** Schritt-für-Schritt-Anleitung zur Eingabe der Bewerbungsdaten
 4. **ApplicationReview:** Überprüfung und Bestätigung der eingegebenen Daten vor dem
 5. **Absenden der Bewerbung**
+
 ---
 
 ## GitHub
@@ -159,10 +166,26 @@
 
 ---  
 
-## Struktur
-![Struktur](./registerplatformrebuilt_staging.png)
+## Deployment
+- **Claim-folder:** 2 yaml-Dateien für Speichern der Bewerber- und Keycloak-Daten
+- **Shell-folder:** 
+  - backend.sh: delete and create kubernetes resources for backend
+  - deploy-single.sh: deploy single resource (name as parameter)
+  - frontend.sh: delete and create kubernetes resources for frontend
+- **yaml-files:**:
+  - csharp-api: kubernetes resources for csharp-backend
+  - ingress: kubernetes ingress resources
+  - keycloak-deploy: kubernetes resources for keycloak in deployment
+  - keycloak-postgres: kubernetes resources for postgres-db for keycloak
+  - keycloak: kubernetes resources for keycloak
+  - postgres: kubernetes resources for postgres-db
+  - react-frontend: kubernetes resources for react-frontend
+  - seki: kubernetes resources for secretary-frontend
 
 ---
+
+## Struktur
+![Struktur](./registerplatformrebuilt_staging.png)
 
 ### Persons
 
@@ -303,7 +326,7 @@ Speichert Informationen zu Aufnahmeprüfungen.
 
 ---
 
-## EF-Migrationshistorie (`__EFMigrationsHistory`)
+### EF-Migrationshistorie (`__EFMigrationsHistory`)
 
 **Funktion:**  
 Systemtabelle von Entity Framework, dokumentiert angewendete Datenbankmigrationen.  
