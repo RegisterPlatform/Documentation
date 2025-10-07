@@ -33,14 +33,14 @@
     - keycloak10-postgres-config: Konfiguration zu Keycloak
     - postgres-config: Konfiguration der DB
     
-    ![alt text](image-1.png)
+    ![alt text](config-maps.png)
     
     **Secret:** 
     - mail-secret: Zugangsdaten für Email
     - grand: Zugangsdaten für Github
     - postgres-secret: Zugangsdaten für Keycloak
 
-![alt text](image.png)
+![alt text](secrets.png)
 
 ---  
 
