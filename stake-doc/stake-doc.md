@@ -26,10 +26,69 @@
 ---  
 
 ## Leocloud
+- **Ingress (Keycloak, Secretary, AV, Frontend, Backend):** Kontrolle von Ein- und Ausgängen, Redirects
+- **Claim (Keycloak, DB, Backend):** Fester Speicherplatz, um Datenverlust zu vermeiden
+- **BackUp (Keycloak, DB, Backend):** Datensicherheit und Grundstrukturbeibehaltung
+- **Config Maps:** Übersicht aller Konfigurationen
+    - keycloak10-postgres-config: Konfiguration zu Keycloak
+    - postgres-config: Konfiguration der DB
+    
+    ![alt text](image-1.png)
+    
+    **Secret:** 
+    - mail-secret: Zugangsdaten für Email
+    - grand: Zugangsdaten für Github
+    - postgres-secret: Zugangsdaten für Keycloak
+
+![alt text](image.png)
+
+---  
+
+## Keycloak
+- **Login:** Anmelden
+- **Realm:** Abgeschotteter Bereich; kann selected werden
+- **Client:** Schnittstelle für eine Application
+- **Client erstellen:** Daten setzen wie folgt
+- **Root URL:** [Domain]/fronted; Anfang
+- **Home URL:** default
+
+ 
+---
 - **Ingress:** Kontrolle von Ein- und Ausgängen
 - **Claim (Keycloak, Backend):** Fester Speicherplatz, um Datenverlust zu vermeiden
 
----  
+## Backend
+- **API**
+    - ASP.NET Core (MVC)
+    - Controller mit API-Versionierung
+    - Swagger API mit Keycloak
+
+- **App Settings**
+    - Keycloak
+    - API-Versionierung
+    - Mail-Server
+    - Allgemeine Konfigurationen
+
+- **E-Mail**
+    - HTML-basiert
+    - Nutzung eines MailService anstelle direkter Implementierung
+
+- **Models & Services**
+    - Dateien werden mit AES verschlüsselt
+    - Schlüssel in den App Settings gespeichert
+
+- **Migrationen**
+    - Durchführung bei Änderungen an den Models
+
+- **DataContext**
+    - Konfiguration der Datenbank
+    - Create & Update & IDs automatisch generiert
+
+- **Keycloak**
+    - Berechtigungen abrufen
+    - Benutzer anlegen
+    - Rollen zuweisen
+---
 
 ## Frontend
 - **Angular:** Framework zur Erstellung von Webanwendungen
