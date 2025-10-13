@@ -41,6 +41,7 @@ docker build -t ghcr.io/maxmustermann/myapp:v1 .
 ## 2: Login bei GitHub Container Registry (GHCR)
 
 Erstelle auf GitHub einen **Personal Access Token** mit den Rechten `write:packages`.
+[GitHub Token erstellen](./create-github-token.md)
 Dann in GHCR einloggen:
 
 ```bash
