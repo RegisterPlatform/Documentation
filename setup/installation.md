@@ -110,3 +110,6 @@ Das Kubernetes Dashboard ist eine webbasierte Benutzeroberfläche, die es ermög
 leocloud dashboard
 ```
 und folgen Sie den Anweisungen im Terminal.
+
+Wenn Sie das Kubernetes Dashboard erfolgreich gestartet haben, können Sie es in Ihrem Webbrowser öffnen, ändern Sie die URL auf namespace=<your-namespace>.
+<your-namespace> ist der Namespace, den Sie beim Érstellen des Dashboards im Schritt 4 bei der URL unter namespace= angegeben haben. z.B. namespace=student-ifxxxxxx.
