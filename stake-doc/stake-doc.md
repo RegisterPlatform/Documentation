@@ -9,6 +9,7 @@
 ---  
 
 ## Funktionen
+- **Bewerber:** Ermöglicht Bewerber:innen, sich für Schulplätze zu registrieren, ihre Daten einzugeben, Dokumente hochzuladen und den Status ihrer Bewerbung zu verfolgen.
 - **Sek.:** Die eingegebenen Daten werden auf Richtigkeit und Vollständigkeit geprüft.
 - **AV:** Die Schüler werden anhand definierter Kriterien den passenden Klassen zugeteilt und anschließend übersichtlich organisiert.
 
