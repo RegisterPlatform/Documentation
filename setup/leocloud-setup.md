@@ -314,7 +314,7 @@ ENV PUBLIC_URL=/frontend
 ## Hints
 
 ### Permission View
-You can run the the auth command a second time. It can update your permissions if you get new permissions from the sysadmin
+You can run the auth command a second time. It can update your permissions if you get new permissions from the sysadmin
 ```shell
 leocloud auth login --force
 ```
