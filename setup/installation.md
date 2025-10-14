@@ -1,45 +1,60 @@
-# Installation Guide
+# Installation Guide für LeoCloud und Kubernetes
 
-## Ubuntu Installation für Windows
-1. Öffne die "Microsoft Store" App oder die [Ubuntu](https://ubuntu.com/desktop/wsl) Webseite.
-2. Installiere "Ubuntu"
-3. Starte Ubuntu über das Startmenü.
-4. Folge den Anweisungen, um einen neuen Benutzer und ein Passwort zu erstellen.
+Diese Anleitung beschreibt die Installation und Konfiguration von Ubuntu, LeoCloud CLI und Kubernetes (`kubectl`) auf Windows, Linux oder macOS. Sie ist für schulische Projekte optimiert und führt Schritt für Schritt durch die notwendigen Schritte.
 
+---
 
-## leocloud Installation
-### Linux / OSX
-1. Öffne dein Terminal und installiere leocloud mit:
+## 1. Ubuntu Installation für Windows
+
+1. Öffnen Sie die **Microsoft Store** App oder besuchen Sie die [Ubuntu Webseite](https://ubuntu.com/desktop/wsl).
+2. Installieren Sie die Distribution **Ubuntu**.
+3. Starten Sie Ubuntu über das Startmenü.
+4. Folgen Sie den Anweisungen, um einen neuen Benutzer und ein Passwort anzulegen.
+
+---
+
+## 2. Installation von LeoCloud
+
+### Linux / macOS
+
+1. Öffnen Sie das Terminal.
+2. Installieren Sie LeoCloud mit dem folgenden Befehl:
+
 ```bash
 bash -c "$(curl -fsSL https://cloud.htl-leonding.ac.at/html/install.sh)"
 ```
-2. Testen der Installation mit:
+
+3. Prüfen Sie die Installation:
+
 ```bash
 leocloud --help
 ```
-### Windows
+### Windows (über WSL)
 1. Ubuntu starten.
 2. Ubuntu aktualisieren mit:
+
 ```bash
 sudo apt update && sudo apt full-upgrade
 ```
-3. leocloud installieren mit:
+
+3. Installieren Sie LeoCloud wie unter Linux/macOS:
+
 ```bash
 bash -c "$(curl -fsSL https://cloud.htl-leonding.ac.at/html/install.sh)"
 ```
 
-## kubectl Installation
-Die Installation von kubectl erfolgt laut offizieller Kubernetes-Dokumentation: [kubectl](https://kubernetes.io/docs/tasks/tools/)
+## Installation von kubectl
+Die Installation erfolgt laut offizieller Kubernetes-Dokumentation: [kubectl](https://kubernetes.io/docs/tasks/tools/)
 ### Linux / WSL2
-1. Installiere curl, falls noch nicht installiert:
+1. Installieren Sie `curl`, falls nicht vorhanden
 ```bash
 sudo apt install curl -y
 ```
-2. Verifiziere die Installation mit:
+2. Prüfen Sie die Installation:
 ```bash
 curl --version
 ```
-3. Öffne dein Terminal und lade die neueste Version von kubectl herunter:
+3. Laden Sie die aktuelle Version von kubectl herunter:
 ```bash
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 ```
@@ -47,69 +62,57 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 ```bash
 chmod +x kubectl
 ```
-5. Verschiebe die Binärdatei in ein Verzeichnis, das in deinem PATH liegt(falls kubectl nicht in bin ist):
+5. Verschieben Sie kubectl in ein Verzeichnis, das im PATH liegt:
 ```bash
 sudo mv kubectl /usr/local/bin/
-oder
+# oder
 sudo mv kubectl /usr/bin/
 ```
-
-### OSX
-1. Öffne dein Terminal und installiere kubectl mit Homebrew:
+6. Prüfen Sie die Installation:
 ```bash
-brew install kubectl
-```
-2. Teste die Installation mit:
-```bash
-kubectl version --client --output=yaml
+kubectl version --client
 ```
 
-### Test der Installation
-Teste die Installation mit:
-```bash
-echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
-```
-Wenn die Ausgabe `kubectl: OK` ist, ist die Installation erfolgreich.
-
-
-## LeoCloud Login & Kubernetes Config
-Damit kubectl funktioniert brauchen wir eine gültige Konfigurationsdatei. Diese wird als ~/.kube/config gespeichert. Sollte diese Datei bereits existieren, bennen Sie diese um oder löschen Sie sie vorher.
-1. Melde dich bei LeoCloud an mit:
+## LeoCloud Login & Kubernetes Konfiguration
+Damit `kubectl` funktioniert, benötigen Sie eine gültige Konfigurationsdatei `(~/.kube/config)`. Falls diese bereits existiert, benennen Sie sie um oder löschen Sie sie vorher.
+1. Melden Sie sich bei LeoCloud an:
 ```bash
 leocloud auth login
 ```
-2. Prüfe ob die Konfigurationsdatei erstellt wurde mit:
+2. Prüfen Sie die Konfiguration:
 ```bash
 kubectl get nodes
 kubectl config view
 ```
-In der Ausgabe des letzten Kommandos sehen Sie den Namen Ihres Namespaces.
+Der Namespace Ihres Accounts wird in der Ausgabe angezeigt.
 
 ## Erstes Deployment
-Deployment starten mit:
+Starten Sie ein Beispiel-Deployment:
 ```bash
 leocloud get template nginx | kubectl apply -f -
 ```
-Sie können den Status des Deployments mit folgendem Befehl überprüfen:
+Überprüfen Sie den Status der Pods:
 ```bash
 kubectl get pods
 ```
-eigener Hostname anzeigen lassen mit:
+Anzeigen des eigenen Hostnamens:
 ```bash
 kubectl describe ingress
 ```
-Leocloud Homepage öffnen mit:
+Öffnen der LeoCloud-Homepage:
 ```bash
 leocloud get home
 ```
 
 ## Dashboard
-Das Kubernetes Dashboard ist eine webbasierte Benutzeroberfläche, die es ermöglicht, Kubernetes-Cluster zu verwalten und zu überwachen. Es bietet eine visuelle Darstellung der Ressourcen im Cluster und ermöglicht es Benutzern, verschiedene Aufgaben durchzuführen, wie z.B. das Erstellen, Aktualisieren und Löschen von Ressourcen.
-1. Starte das Dashboard mit:
+Das Kubernetes Dashboard bietet eine webbasierte Benutzeroberfläche zur Verwaltung des Clusters.
+1. Starten Sie das Dashboard:
 ```bash
 leocloud dashboard
 ```
-und folgen Sie den Anweisungen im Terminal.
-
-Wenn Sie das Kubernetes Dashboard erfolgreich gestartet haben, können Sie es in Ihrem Webbrowser öffnen, ändern Sie die URL auf namespace=<your-namespace>.
-<your-namespace> ist der Namespace, den Sie beim Érstellen des Dashboards im Schritt 4 bei der URL unter namespace= angegeben haben. z.B. namespace=student-ifxxxxxx.
+2. Folgen Sie den Anweisungen im Terminal.
+3. Nach erfolgreichem Start können Sie das Dashboard im Browser öffnen. Passen Sie die URL auf Ihren Namespace an:
+```cpp
+namespace=<your-namespace>
+```
+Beispiel: `namespace=student-ifxxxxxx`.
