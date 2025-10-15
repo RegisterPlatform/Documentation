@@ -41,6 +41,11 @@ COPY --from=build /app/dist/$APP_NAME/browser/ /usr/share/nginx/html
 EXPOSE 80
 ```
 
+Prüfe, ob die Pfade und Befehle zu deinem Projekt passen:
+```bash
+docker build .
+```
+
 Baue dein Docker Image:
 ```bash
 docker build -t ghcr.io/<github-user>/<image-name>:latest .
