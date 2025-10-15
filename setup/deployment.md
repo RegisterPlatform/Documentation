@@ -34,10 +34,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run build
+RUN npm run build --configuration=production
 
 FROM nginx:alpine
-COPY --from=build /app/dist/frontend-av /usr/share/nginx/html
+COPY --from=build /app/dist/$APP_NAME/browser/ /usr/share/nginx/html
 EXPOSE 80
 ```
 
