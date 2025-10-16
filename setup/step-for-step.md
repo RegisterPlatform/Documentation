@@ -18,3 +18,14 @@ Wichtig: LeoCloud ist keine Entwicklungsumgebung. Zum Entwickeln und Debuggen is
 
 3. [Installation und Erstes Deployment](./installation.md)
 4. [Deployment von Anwendungen](./deployment.md)
+
+5. Die YAML-Dateien der RegisterPlattform werden in folgender Reihenfolge deployed:
+- secrets
+- configmaps
+- claims
+- postgres
+- keycloak-postgres
+- keycloak
+- elasticsearch
+- backend
+- frontend
