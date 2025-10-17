@@ -191,3 +191,12 @@ Rufe folgende URL auf:
 ```
 https://<your-namespace>.cloud.htl-leonding.ac.at
 ```
+
+## Update Deployment
+Wenn du dein Image aktualisieren möchtest:
+1. Baue das Docker Image neu (Schritt 1)
+2. Pushe das Image zu GHCR (Schritt 4)
+3. Aktualisiere das Deployment in der LeoCloud:
+```bash
+kubectl rollout restart deployment <APP_NAME>
+```
