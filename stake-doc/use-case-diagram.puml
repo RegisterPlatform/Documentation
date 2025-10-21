@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor Applicant
+
+package "BWP" {
+    usecase "Create Account" as UC1
+    usecase "Submit Application" as UC2
+    usecase "Pre-registration" as UC3
+    usecase "Cache" as UC4
+    usecase "Overview Applications" as UC5
+    usecase "Accept/Deny" as UC6
+    usecase "Class Division" as UC7
+}
+
+package "School" {
+    actor DepardmentManager
+    actor Secretariat
+}
+
+Applicant --> UC1
+Applicant --> UC2
+Applicant --> UC3
+Applicant --> UC4
+UC2 --> UC5 : <<include>>
+Secretariat --> UC6
+UC2 --> UC6
+DepardmentManager --> UC5
+Secretariat --> UC5
+DepardmentManager --> UC7
+
+@enduml
