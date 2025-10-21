@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/deployment-diagram
+
+
+actor user as "User"
+cloud leocloud as "LeoCloud"{
+    database userdb as "User Database"
+    database posgresdb as "Postgres Database"
+    node backend as "Backend"
+    node frontend as "Frontend"
+    node elasticsearch as "Elasticsearch"
+    node keycloak as "Keycloak"
+    storage claimUserDB as "UserClaim"
+    storage claimbackendDB as "BackendClaim"
+    storage claimposgreDB as "PostgeClaim"
+
+    port ingress as "Ingress"
+}
+
+claimUserDB --* userdb
+claimbackendDB --* backend
+claimposgreDB --* posgresdb
+keycloak --* userdb
+backend --* posgresdb
+backend --* elasticsearch
+elasticsearch --* posgresdb
+user <--> ingress : ""
+frontend . ingress : ""
+keycloak . ingress : ""
+backend . ingress : ""
+
+@enduml

@@ -6,11 +6,12 @@
 !*.png
 !*.jpg
 !*.html
+!*.puml
 !used-tech/
+!stake-doc/
 !uml
 !img
 !setup
 !backend
 !_config.yml
 !Gemfile
-!*.puml
