@@ -6,7 +6,9 @@
 !*.png
 !*.jpg
 !*.html
+!*.puml
 !used-tech/
+!stake-doc/
 !uml
 !img
 !setup
