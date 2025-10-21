@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Applicant as user
+control Frontend as frontend
+control Backend as backend
+boundary ElasticSearch as elastic
+database Database as db
+
+== Register-Platform ==
+
+user -> frontend: Enter Data
+frontend -> backend: Save Data
+backend -> db: Store Platform Data
+db -> backend: Confirmation
+backend -> frontend : Data saved
+
+user -> frontend: Enter Data
+frontend -> backend: Submit Data
+backend -> db: Submit Platform Data
+db -> backend: Confirmation
+backend -> frontend : Data submitted
+backend -> user : Email Confirmation
+
+@enduml

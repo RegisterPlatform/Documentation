@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor Secretariat as user
+control Frontend as frontend
+control Backend as backend
+boundary ElasticSearch as elastic
+database Database as db
+
+== Front Office ==
+
+user -> frontend : Searching Student
+frontend -> backend : Requesting Student
+backend -> elastic : Fetching Data
+elastic -> db : Initial Caching
+db -> elastic : Returning Data
+elastic -> backend : Filtered Students
+backend -> frontend : Students Data
+frontend -> user : Displaying Student
+user -> frontend : Changing Status
+frontend -> backend : Sending Status Change
+backend -> db : Updating Status
+db -> backend : Confirmation
+backend -> frontend : Status Updated
+frontend -> user : Displaying Confirmation
+
+
+@enduml

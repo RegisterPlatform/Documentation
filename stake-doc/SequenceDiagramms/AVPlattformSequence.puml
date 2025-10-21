@@ -1,0 +1,41 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor AV as user
+control Frontend as frontend
+control Backend as backend
+boundary ElasticSearch as elastic
+database Database as db
+
+== AV-Platform ==
+
+frontend -> backend : Requesting Students
+backend -> elastic : Fetching Data
+elastic -> db : Initial Caching
+db -> elastic : Returning Data
+elastic -> backend : Filtered Students
+backend -> frontend : Students Data
+frontend -> user : Displaying Students
+
+user -> frontend : Searching Student
+frontend -> backend : Requesting Student
+backend -> elastic : Fetching Data
+elastic -> db : Initial Caching
+db -> elastic : Returning Data
+elastic -> backend : Filtered Students
+backend -> frontend : Students Data
+frontend -> user : Displaying Student
+
+user -> frontend : Selecting Class
+frontend -> backend : Requesting Students
+backend -> elastic : Fetching Data
+elastic -> db : Initial Caching
+db -> elastic : Returning Data
+elastic -> backend : Filtered Students
+backend -> frontend : Ordered Students
+frontend -> user : Displaying Students
+
+
+@enduml
