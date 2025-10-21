@@ -2,35 +2,32 @@
 left to right direction
 skinparam packageStyle rectangle
 
-actor Student
+actor Applicant
 
-rectangle "School Registration Platform" {
+package "BWP" {
     usecase "Create Account" as UC1
-    usecase "Log In" as UC2
-    usecase "Change Language" as UC3
-    usecase "Reset Password" as UC4
-    usecase "Enter Personal Information" as UC5
-    usecase "Select School Branch" as UC6
-    usecase "Enter Previous School Information" as UC7
-    usecase "Enter Final Grades" as UC8
-    usecase "Add Legal Guardians" as UC9
-    usecase "Upload Certificates" as UC10
-    usecase "Provide Signature" as UC11
-    usecase "Submit Application" as UC12
+    usecase "Submit Application" as UC2
+    usecase "Pre-registration" as UC3
+    usecase "Cache" as UC4
+    usecase "Overview Applications" as UC5
+    usecase "Accept/Deny" as UC6
+    usecase "Class Division" as UC7
 }
 
-' Student relationships
-Student --> UC1
-Student --> UC2
-Student --> UC3
-Student --> UC4
-Student --> UC5
-Student --> UC6
-Student --> UC7
-Student --> UC8
-Student --> UC9
-Student --> UC10
-Student --> UC11
-Student --> UC12
+package "School" {
+    actor DepardmentManager
+    actor Secretariat
+}
+
+Applicant --> UC1
+Applicant --> UC2
+Applicant --> UC3
+Applicant --> UC4
+UC2 --> UC5 : <<include>>
+Secretariat --> UC6
+UC2 --> UC6
+DepardmentManager --> UC5
+Secretariat --> UC5
+DepardmentManager --> UC7
 
 @enduml
