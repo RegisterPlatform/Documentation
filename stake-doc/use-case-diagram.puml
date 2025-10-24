@@ -23,7 +23,7 @@ package "BWP" as BWP {
 
 package "School" as School {
     actor DepartmentManager
-    actor Secretariat
+    actor Secretary
 }
 
 BWP -[hidden]-> School
