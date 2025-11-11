@@ -24,9 +24,9 @@ keycloak --* userdb
 backend --* posgresdb
 backend --* elasticsearch
 elasticsearch --* posgresdb
-user <--> ingress : ""
-frontend . ingress : ""
-keycloak . ingress : ""
-backend . ingress : ""
+user <--> ingress : "client-traffic"
+frontend . ingress : "frontend-ingress"
+keycloak . ingress : "auth-ingress"
+backend . ingress : "backend-ingress"
 
 @enduml
