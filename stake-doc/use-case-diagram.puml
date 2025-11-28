@@ -11,7 +11,7 @@ package "BWP" as BWP {
     usecase "Create Account" as UC1
     usecase "Submit Application" as UC2
     usecase "Pre-registration" as UC3
-    usecase "Cache" as UC4
+    usecase "Save" as UC4
     usecase "Overview (own application)" as UC5a
     usecase "Overview (all applications)" as UC5b
     usecase "Accept/Deny" as UC6
