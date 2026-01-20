@@ -1,0 +1,15 @@
+@startuml (status)
+title Bewerbungsstatus
+
+[*] --> Created
+
+Created --> DocumentMissing
+DocumentMissing --> Submitted
+Submitted --> Unassigned
+Submitted --> DocumentMissing
+Submitted --> AdmissionTestsNeeded
+Submitted --> Completed
+Completed --> Rejected
+Completed --> Accepted
+
+@enduml
