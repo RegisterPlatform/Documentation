@@ -1,15 +1,30 @@
-@startuml (status)
+@startuml
 title Bewerbungsstatus
+
+state Created
+state Unregistered
+state Submitted
+state DocumentMissing
+state AdmissionTestsNeeded
 
 [*] --> Created
 
-Created --> DocumentMissing
-DocumentMissing --> Submitted
-Submitted --> Unassigned
+Created --> DocumentMissing : Dokumente fehlen
+Created --> Submitted : Bewerbung überprüft
+DocumentMissing --> Submitted : Dokumente nachgereicht
+
+state "AV" as AV {
+    state Completed
+    state Rejected
+    state Accepted
+}
+
+Submitted --> Completed
 Submitted --> DocumentMissing
 Submitted --> AdmissionTestsNeeded
-Submitted --> Completed
 Completed --> Rejected
 Completed --> Accepted
+
+Accepted --> Unregistered
 
 @enduml
