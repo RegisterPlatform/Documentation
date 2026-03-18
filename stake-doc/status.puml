@@ -19,7 +19,7 @@ state "AV" as AV {
 Submitted --> Unassigned
 Submitted --> DocumentMissing : Dokumente fehlen
 Submitted --> AdmissionCriteriaNotMet
-Unassigned --> Assigned
+Unassigned --> Assigned : Bewerbung zugewiesen
 Unassigned --> Rejected : Bewerbung abgelehnt
 Unassigned --> Accepted : Bewerbung akzeptiert
 Assigned --> Rejected : Bewerbung abgelehnt
