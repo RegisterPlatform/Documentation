@@ -1,16 +1,12 @@
 @startuml
 title Bewerbungsstatus
 
-state Created : Erstellt die Bewerbung
 state Unregistered : Abgemeldet
 state Submitted : Bewerbung eingereicht
 state DocumentMissing : Dokumente fehlen
 state AdmissionCriteriaNotMet : Zulassungskriterien nicht erfüllt
 
-[*] --> Created
-
-Created --> DocumentMissing : Dokumente fehlen
-Created --> Submitted : Bewerbung überprüft
+[*] --> DocumentMissing : Angemeldet
 DocumentMissing --> Submitted : Dokumente nachgereicht
 
 state "AV" as AV {
@@ -21,11 +17,12 @@ state "AV" as AV {
 }
 
 Submitted --> Unassigned
-Submitted --> DocumentMissing
+Submitted --> DocumentMissing : Dokumente fehlen
 Submitted --> AdmissionCriteriaNotMet
 Unassigned --> Assigned
-Unassigned --> Rejected
-Assigned --> Rejected
-Assigned --> Accepted
+Unassigned --> Rejected : Bewerbung abgelehnt
+Unassigned --> Accepted : Bewerbung akzeptiert
+Assigned --> Rejected : Bewerbung abgelehnt
+Assigned --> Accepted : Bewerbung akzeptiert
 
 @enduml
