@@ -11,5 +11,5 @@
 - register.yaml einspielen und applien
 - frontend.yaml einspielen und applien
 - DNS Challenge abwarten, um Letsencrypt einrichten zu lassen für die jeweiligen Wildcard Einträge
-- Kaffetrinken und warten
+- Kaffee trinken und warten
 - Logs checken ob alle gut läuft und von außen testen
