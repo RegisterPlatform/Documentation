@@ -17,3 +17,5 @@
 !backend
 !_config.yml
 !Gemfile
+!branding/
+!*.pptx
